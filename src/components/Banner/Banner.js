@@ -17,7 +17,7 @@ const [movie, setMovie] = useState([])
     const response = await fetch(API_URL);
     const data = await response.json();
     setData(data.results);
-    console.log(data.results)
+    
   };
 
   const nextPage = () => {
