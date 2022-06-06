@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./banner.scss";
 
-import MovieCards from "../MovieCards/MovieCards";
-
 const Banner = () => {
   const [data, setData] = useState([]);
   const [page, setPage] = useState(1);
@@ -21,7 +19,7 @@ const Banner = () => {
     return (
       <div key={index}>
         <img
-          className="card"
+          className="banner-card"
           src={`https://image.tmdb.org/t/p/w500/${
             item.backdrop_path || item.poster_path
           }`}

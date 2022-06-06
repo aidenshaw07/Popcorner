@@ -1,42 +1,52 @@
 import React, { useState, useEffect } from "react";
 import Footer from "../Footer/Footer";
+import "./movieCards.scss";
 
 const MovieCards = (props) => {
   const [data, setData] = useState([]);
   const [page, setPage] = useState(1);
-  const [movie, setMovie] = useState([]);
 
   const API_URL = `https://api.themoviedb.org/3/movie/upcoming?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&page=${page}`;
 
-  console.log(API_URL);
-
   const fetchApi = async () => {
     const response = await fetch(API_URL);
-    const data = await response.json();
-    setData(data.results);
+    const movie = await response.json();
+    if(data.length >= 20) {
+      setData([...data, ...movie.results]);
+    } else {
+      setData(movie.results);
+    }
+    console.log(movie.results);
   };
 
   const nextPage = () => {
-    setPage((prev) => prev + 1);
+    setPage((next) => next + 1);
   };
 
   const renderData = data.map((item, index) => {
     return (
-      <div key={index}>
+      <div className="divclass" key={index}>
         <img
           className="card"
           src={`https://image.tmdb.org/t/p/w500/${
-            item.backdrop_path || item.poster_path
+            item.poster_path || item.backdrop_path
           }`}
           alt={item.title}
         />
-        <div className="card-body">
-          <h5 className="card-title">{item.title}</h5>
-          <p className="card-text">{item.overview}</p>
+        <div className="card-title">
+          <h5 >{item.title}</h5>
         </div>
       </div>
     );
   });
+
+  // const noImage = () => {
+  //   if(item.poster_path || item.backdrop_path === null) {
+  //     return (
+  //       <img src="src\components\MovieCards\error.jpg" alt="error" />
+  //     );
+  //   }
+  // }
 
   useEffect(() => {
     fetchApi();
@@ -44,7 +54,7 @@ const MovieCards = (props) => {
 
   return (
     <div>
-      {renderData}
+      <div className="moviecards">{renderData}</div>
       <Footer nextPage={nextPage} />
     </div>
   );
