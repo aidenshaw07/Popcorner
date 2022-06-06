@@ -7,8 +7,6 @@ const Banner = () => {
 
   const API_URL = `https://api.themoviedb.org/3/movie/upcoming?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&page=${page}`;
 
-  //   console.log(API_URL);
-
   const fetchApi = async () => {
     const response = await fetch(API_URL);
     const data = await response.json();
