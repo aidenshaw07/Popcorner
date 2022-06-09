@@ -25,7 +25,7 @@ const Banner = () => {
           alt={item.title}
         />
         <div className="banner-body">
-          <h1 className="banner-title">{item.title}</h1>
+          <h1 className="banner-text">{item.title}</h1>
           <h3 className="banner-text">{item.overview}</h3>
         </div>
       </div>

@@ -1,18 +1,18 @@
-import React, { useEffect, useRef, useLayoutEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import Footer from "../Footer/Footer";
 import "./movieCards.scss";
 import { Link } from "react-router-dom";
 
 const MovieCards = (props) => {
-
-// const isMounted =useRef(false);
+  // const isMounted = useRef(false);
+  // console.log(props.data);
 
   const API_URL = `https://api.themoviedb.org/3/movie/upcoming?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&page=${props.page}`;
 
   const fetchApi = async () => {
     const response = await fetch(API_URL);
     const movie = await response.json();
-    console.log(movie);
+    // console.log(movie);
     props.setData([...props.data, ...movie.results]);
   };
 
@@ -45,9 +45,13 @@ const MovieCards = (props) => {
 
   useEffect(() => {
     fetchApi();
+    return () => {
+      console.log("unmount");
+      props.setData([]);
+    }
   }, [props.page]);
 
-  // useLayoutEffect(() => {
+  // useEffect(() => {
   //   if (isMounted.current) {
   //     fetchApi()
   //   } else {
