@@ -15,7 +15,8 @@ const Banner = () => {
 
   const renderData = data.map((item, index) => {
     return (
-      <div className="banner-card-div" key={index}>
+      <div 
+      className="banner-card-div" key={index}>
         <img
           className="banner-card"
           src={`https://image.tmdb.org/t/p/w500/${
@@ -24,8 +25,8 @@ const Banner = () => {
           alt={item.title}
         />
         <div className="banner-body">
-          {/* <h5 className="banner-title">{item.title}</h5>
-          <p className="banner-text">{item.overview}</p> */}
+          <h1 className="banner-title">{item.title}</h1>
+          <h3 className="banner-text">{item.overview}</h3>
         </div>
       </div>
     );

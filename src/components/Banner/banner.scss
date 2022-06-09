@@ -1,17 +1,13 @@
-.banner-card-div {
-    position: relative;
-    width: 100%;
-    height: 100%;
+.banner-card {
+    // width: 100%;
+    background-size: auto 100%;
+    background-color: #fff;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
 
-.banner-card {
-    background-color: #fff;
-    border-radius: 4px;
-    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 25px 50px 0 rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin: 0 auto;
-    max-width: 100%;
-    position: relative;
+.banner-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #373b69;
+    margin: 1rem;
 }

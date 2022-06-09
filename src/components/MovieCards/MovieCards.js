@@ -1,48 +1,26 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useRef, useLayoutEffect } from "react";
 import Footer from "../Footer/Footer";
-import NavBar from "../Navbar/NavBar";
 import "./movieCards.scss";
-import { Link, Route, Routes, useParams } from "react-router-dom";
-//import { BrowserRouter as Router } from "react-router-dom";
-import MovieCardsDetails from "../MovieCardsDetails/MovieCardsDetails";
+import { Link } from "react-router-dom";
 
 const MovieCards = (props) => {
-  const [data, setData] = useState([]);
-  const [page, setPage] = useState(1);
-  const [searchValue, setSearchValue] = useState("");
 
-  const movies = useParams();
-  console.log(data)
-  
+// const isMounted =useRef(false);
 
-  
-
-  const API_URL = `https://api.themoviedb.org/3/movie/upcoming?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&page=${page}`;
-
-  const SEARCH_API = `http://www.omdbapi.com/?s=${searchValue}&apikey=263d22d8`;
-
-  // `https://api.themoviedb.org/3/movie/${searchValue}?api_key=e1976db05fc177e4395e16088185d3fd&language=en-US`;
+  const API_URL = `https://api.themoviedb.org/3/movie/upcoming?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&page=${props.page}`;
 
   const fetchApi = async () => {
     const response = await fetch(API_URL);
     const movie = await response.json();
-    if (data.length >= 20) {
-      setData([...data, ...movie.results]);
-    } else {
-      setData(movie.results);
-    }
+    console.log(movie);
+    props.setData([...props.data, ...movie.results]);
   };
-
-  // const searchApi = async () => {
-  //   const response = await fetch(SEARCH_API);
-  //   const movie = await response.json();
-  // };
 
   const nextPage = () => {
-    setPage((next) => next + 1);
+    props.setPage((next) => next + 1);
   };
 
-  const renderData = data.map((item, index) => {
+  const renderData = props.data.map((item, index) => {
     return (
       <div className="divclass" key={index}>
         <Link to={`/${item.id}`}>
@@ -57,7 +35,7 @@ const MovieCards = (props) => {
             }}
             alt={item.title}
           />
-          </Link>
+        </Link>
         <div className="card-title">
           <h5>{item.title}</h5>
         </div>
@@ -67,15 +45,21 @@ const MovieCards = (props) => {
 
   useEffect(() => {
     fetchApi();
-  }, [page]);
+  }, [props.page]);
+
+  // useLayoutEffect(() => {
+  //   if (isMounted.current) {
+  //     fetchApi()
+  //   } else {
+  //     isMounted.current = true;
+  //   }
+  // }, [props.page]);
 
   return (
-
-      <div>
-        <div className="moviecards">{renderData}</div>
-        <Footer nextPage={nextPage} />
-      </div>
-
+    <div>
+      <div className="moviecards">{renderData}</div>
+      <Footer nextPage={nextPage} />
+    </div>
   );
 };
 
