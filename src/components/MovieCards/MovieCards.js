@@ -29,7 +29,7 @@ const MovieCards = ({ data, setData, page, setPage, searchData }) => {
             }`}
             onError={(e) => {
               e.target.src =
-                "http://www.quickmeme.com/img/bd/bdb7ac37e00ff92776d0dead5171743db339c34a1f4f4c7293b3bde5ca960c79.jpg";
+                "https://seranking.com/blog/wp-content/uploads/2021/01/404_01-min.jpg";
             }}
             alt={item.title}
           />
