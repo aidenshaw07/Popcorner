@@ -3,31 +3,30 @@ import Footer from "../Footer/Footer";
 import "./movieCards.scss";
 import { Link } from "react-router-dom";
 
-const MovieCards = (props) => {
-  // const isMounted = useRef(false);
-  // console.log(props.data);
+const MovieCards = ({ data, setData, page, setPage, searchData}) => {
 
-  const API_URL = `https://api.themoviedb.org/3/movie/upcoming?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&page=${props.page}`;
+  const API_URL = `https://api.themoviedb.org/3/movie/upcoming?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&page=${page}`;
 
   const fetchApi = async () => {
     const response = await fetch(API_URL);
     const movie = await response.json();
-    // console.log(movie);
-    props.setData([...props.data, ...movie.results]);
+    setData([...data, ...movie.results]);
   };
 
   const nextPage = () => {
-    props.setPage((next) => next + 1);
+    setPage((next) => next + 1);
   };
 
-  const renderData = props.data.map((item, index) => {
+  const whichData = searchData?.length > 2 ? searchData : data;
+
+  const renderData = whichData.map((item, index) => {
     return (
       <div className="divclass" key={index}>
         <Link to={`/${item.id}`}>
           <img
             className="card"
             src={`https://image.tmdb.org/t/p/w500/${
-              item.poster_path || item.backdrop_path
+              item?.poster_path || item?.backdrop_path
             }`}
             onError={(e) => {
               e.target.src =
@@ -45,19 +44,7 @@ const MovieCards = (props) => {
 
   useEffect(() => {
     fetchApi();
-    return () => {
-      console.log("unmount");
-      props.setData([]);
-    }
-  }, [props.page]);
-
-  // useEffect(() => {
-  //   if (isMounted.current) {
-  //     fetchApi()
-  //   } else {
-  //     isMounted.current = true;
-  //   }
-  // }, [props.page]);
+  }, [page]);
 
   return (
     <div>

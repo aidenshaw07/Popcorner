@@ -3,12 +3,10 @@ import { useParams } from "react-router-dom";
 import Header from "../Header/Header";
 import "./movieCardsDetails.scss";
 
-//
-
-const MovieCardsDetails = (props) => {
+const MovieCardsDetails = () => {
   const [movieDetails, setMovieDetails] = useState([]);
   const [cast, setCast] = useState([]);
-  // console.log(cast);
+  const [page, setPage] = useState(1);
 
   const movieId = useParams();
   const DETAILS_API = `https://api.themoviedb.org/3/movie/${movieId.movieId}?api_key=${process.env.REACT_APP_API_KEY}&language=en-US`;
@@ -19,6 +17,7 @@ const MovieCardsDetails = (props) => {
     const response = await fetch(DETAILS_API);
     const details = await response.json();
     setMovieDetails(details);
+    console.log(details);
   };
 
   const fetchApiCast = async () => {
@@ -52,9 +51,9 @@ const MovieCardsDetails = (props) => {
     fetchApiCast();
     return () => {
       console.log("unmount details");
-      props.setPage(1);
+      setPage(1);
     };
-  }, [props.page]);
+  }, [page]);
 
   return (
     <div>
