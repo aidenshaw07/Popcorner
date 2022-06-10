@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import "./banner.scss";
 
 const Banner = (props) => {
@@ -9,8 +9,6 @@ const Banner = (props) => {
     const data = await response.json();
     props.setData(data.results);
   };
-
-  console.log(props.data)
 
   const renderData = props.data.map((item, index) => {
     return (

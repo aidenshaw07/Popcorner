@@ -28,7 +28,7 @@ const NavBar = ({ setData }) => {
           }}
           placeholder="Search For A Movie"
         />
-      </nav> 
+      </nav>
     </div>
   );
 };

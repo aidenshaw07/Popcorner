@@ -17,7 +17,6 @@ const MovieCardsDetails = () => {
     const response = await fetch(DETAILS_API);
     const details = await response.json();
     setMovieDetails(details);
-    console.log(details);
   };
 
   const fetchApiCast = async () => {
@@ -50,7 +49,6 @@ const MovieCardsDetails = () => {
     fetchApiDetails();
     fetchApiCast();
     return () => {
-      console.log("unmount details");
       setPage(1);
     };
   }, [page]);

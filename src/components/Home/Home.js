@@ -11,7 +11,7 @@ const Home = () => {
   const [searchData, setSearchData] = useState([]);
 
   return (
-    <>
+    <> 
       <Header />
       <Banner data={data} setData={setData} />
       <SearchBar setData={setSearchData} />

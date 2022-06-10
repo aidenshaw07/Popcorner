@@ -1,10 +1,9 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect } from "react";
 import Footer from "../Footer/Footer";
 import "./movieCards.scss";
 import { Link } from "react-router-dom";
 
-const MovieCards = ({ data, setData, page, setPage, searchData}) => {
-
+const MovieCards = ({ data, setData, page, setPage, searchData }) => {
   const API_URL = `https://api.themoviedb.org/3/movie/upcoming?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&page=${page}`;
 
   const fetchApi = async () => {
