@@ -13,6 +13,8 @@ const MovieCardsDetails = () => {
 
   const CREDITS_API = `https://api.themoviedb.org/3/movie/${movieId.movieId}/credits?api_key=${process.env.REACT_APP_API_KEY}&language=en-US`;
 
+
+
   const fetchApiDetails = async () => {
     const response = await fetch(DETAILS_API);
     const details = await response.json();
@@ -30,7 +32,7 @@ const MovieCardsDetails = () => {
       <div className="cast-div" key={index}>
         <img
           className="cast-img"
-          src={`https://image.tmdb.org/t/p/w500/${item.profile_path}`}
+          src={`https://image.tmdb.org/t/p/w1280/${item.profile_path}`}
           onError={(e) => {
             e.target.src =
               "https://seranking.com/blog/wp-content/uploads/2021/01/404_01-min.jpg";
@@ -60,7 +62,7 @@ const MovieCardsDetails = () => {
         <div className="mcd-div-img">
           <img
             className="mcd-img"
-            src={`https://image.tmdb.org/t/p/w500/${movieDetails.backdrop_path}`}
+            src={`https://image.tmdb.org/t/p/w1280/${movieDetails.backdrop_path}`}
             onError={(e) => {
               e.target.src =
                 "https://seranking.com/blog/wp-content/uploads/2021/01/404_01-min.jpg";
