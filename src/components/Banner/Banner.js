@@ -1,9 +1,10 @@
 import React, { useEffect } from "react";
 import Carousel from "react-bootstrap/Carousel";
+import { UPCOMING_BASE_URL } from "../../config";
 import "./banner.scss";
 
 const Banner = ({ data, setData, page }) => {
-  const API_URL = `https://api.themoviedb.org/3/movie/upcoming?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&page=${page}`;
+  const API_URL = `${UPCOMING_BASE_URL}${page}`;
 
   const fetchApi = async () => {
     const response = await fetch(API_URL);

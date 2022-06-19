@@ -1,19 +1,20 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { MOVIE_BASE_URL } from "../../config";
 import Header from "../Header/Header";
+import Trailer from "../Trailer/Trailer";
 import "./movieCardsDetails.scss";
 
 const MovieCardsDetails = () => {
-  const [movieDetails, setMovieDetails] = useState([]);
+  const [movieDetails, setMovieDetails] = useState({});
   const [cast, setCast] = useState([]);
   const [page, setPage] = useState(1);
 
   const movieId = useParams();
-  const DETAILS_API = `https://api.themoviedb.org/3/movie/${movieId.movieId}?api_key=${process.env.REACT_APP_API_KEY}&language=en-US`;
 
-  const CREDITS_API = `https://api.themoviedb.org/3/movie/${movieId.movieId}/credits?api_key=${process.env.REACT_APP_API_KEY}&language=en-US`;
+  const DETAILS_API = `${MOVIE_BASE_URL}${movieId.movieId}?api_key=${process.env.REACT_APP_API_KEY}&language=en-US`;
 
-
+  const CREDITS_API = `${MOVIE_BASE_URL}${movieId.movieId}/credits?api_key=${process.env.REACT_APP_API_KEY}&language=en-US`;
 
   const fetchApiDetails = async () => {
     const response = await fetch(DETAILS_API);
@@ -50,6 +51,7 @@ const MovieCardsDetails = () => {
   useEffect(() => {
     fetchApiDetails();
     fetchApiCast();
+
     return () => {
       setPage(1);
     };
@@ -74,10 +76,21 @@ const MovieCardsDetails = () => {
           <h1>{movieDetails.original_title}</h1>
           <h3>({movieDetails.title})</h3>
           <h2 className="mcd-h2">{movieDetails.overview}</h2>
-          <h3 className="mcd-h3">Budget : {movieDetails.budget}</h3>
-          <h3 className="mcd-h3">Release Date : {movieDetails.release_date}</h3>
-          <h3 className="mcd-h3">Runtime : {movieDetails.runtime} minutes</h3>
-          <h3 className="mcd-h3">Rating : {movieDetails.vote_average}</h3>
+          <div className="trailer">
+            <div>
+              <h3 className="mcd-h3">Budget : {movieDetails.budget}</h3>
+              <h3 className="mcd-h3">
+                Release Date : {movieDetails.release_date}
+              </h3>
+              <h3 className="mcd-h3">
+                Runtime : {movieDetails.runtime} minutes
+              </h3>
+              <h3 className="mcd-h3">Rating : {movieDetails.vote_average}</h3>
+            </div>
+            <div>
+              <Trailer movieId={movieId} />
+            </div>
+          </div>
           <div className="moviecardsdetails">{renderCast}</div>
         </div>
       </div>

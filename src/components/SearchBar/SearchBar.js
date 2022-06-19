@@ -1,16 +1,19 @@
-import React, { useState, useEffect } from "react";
-import "./searchBar.scss";
+import React, { useState, useEffect, useCallback } from "react";
 import { SEARCH_BASE_URL } from "../../config";
+import "./searchBar.scss";
 
-const SearchBar = ({ setData }) => {
+const SearchBar = ({ setData, page, data }) => {
   const [searchValue, setSearchValue] = useState(undefined);
+  // console.log(searchValue);
 
-  const SEARCH_API = `${SEARCH_BASE_URL}${searchValue}&page=1&include_adult=false`;
+  const SEARCH_API = `${SEARCH_BASE_URL}${searchValue}&page=${page}`;
+  // console.log(SEARCH_API);
 
   const searchApi = async () => {
     const response = await fetch(SEARCH_API);
     const movieData = await response.json();
     setData(movieData.results);
+    // console.log(movieData.results);
   };
 
   useEffect(() => {

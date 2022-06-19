@@ -1,10 +1,10 @@
 import React from "react";
 import "./footer.scss";
 
-const Footer = (props) => {
+const Footer = ({ nextPage }) => {
   return (
     <div className="footer">
-      <button className="button" onClick={props.nextPage}>
+      <button className="button" onClick={nextPage}>
         Load More
       </button>
     </div>

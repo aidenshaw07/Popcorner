@@ -1,10 +1,11 @@
 import React, { useEffect } from "react";
 import Footer from "../Footer/Footer";
-import "./movieCards.scss";
 import { Link } from "react-router-dom";
+import { UPCOMING_BASE_URL } from "../../config";
+import "./movieCards.scss";
 
-const MovieCards = ({ data, setData, page, setPage, searchData }) => {
-  const API_URL = `https://api.themoviedb.org/3/movie/upcoming?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&page=${page}`;
+const MovieCards = ({ data, setData, page, searchData, nextPage }) => {
+  const API_URL = `${UPCOMING_BASE_URL}${page}`;
 
   const fetchApi = async () => {
     const response = await fetch(API_URL);
@@ -12,9 +13,6 @@ const MovieCards = ({ data, setData, page, setPage, searchData }) => {
     setData([...data, ...movie.results]);
   };
 
-  const nextPage = () => {
-    setPage((next) => next + 1);
-  };
 
   const whichData = searchData?.length > 2 ? searchData : data;
 
@@ -48,7 +46,6 @@ const MovieCards = ({ data, setData, page, setPage, searchData }) => {
   return (
     <div>
       <div className="moviecards">{renderData}</div>
-      <Footer nextPage={nextPage} />
     </div>
   );
 };
