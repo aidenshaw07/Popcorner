@@ -1,25 +1,23 @@
 .searchBar {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
+//   background-color: rgb(45, 45, 45);
+  width: 100%;
+  padding: 0 60px;
+  .input {
+    width: 75%;
+    // margin: 20px 150px;
+    border-radius: 15px;
+    border: none;
     background-color: rgb(45, 45, 45);
-    width: 100%;
-    padding: 0 60px;
-    height: 100px;
-    border-top: 2px solid gray;
-    .input {
-        width: 75%;
-        margin: 20px 150px;
-        border-radius: 25px;
-        border: none;
-        background-color: #373b69;
-        color: white;
-        margin: 10px;
-        padding: 20px 20px;
-        font-size: 1rem;
-        font-weight: bold;
-        outline: none;
-        &:focus {
-            border: none;
-        }
-    }
+    color: white;
+    margin: 0.7rem;
+    padding: 20px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    outline: none;
+    -webkit-box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.75);
+  }
 }

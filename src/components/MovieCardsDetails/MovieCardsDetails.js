@@ -36,13 +36,13 @@ const MovieCardsDetails = () => {
           src={`https://image.tmdb.org/t/p/w1280/${item.profile_path}`}
           onError={(e) => {
             e.target.src =
-              "https://seranking.com/blog/wp-content/uploads/2021/01/404_01-min.jpg";
+              "https://i.imgur.com/oUESttn.jpg";
           }}
           alt={item.name}
         />
         <div className="cast-name">
           <h3>{item.name}</h3>
-          <h4>{item.character}</h4>
+          <h5>{item.character}</h5>
         </div>
       </div>
     );
@@ -51,49 +51,47 @@ const MovieCardsDetails = () => {
   useEffect(() => {
     fetchApiDetails();
     fetchApiCast();
-
     return () => {
       setPage(1);
     };
   }, [page]);
 
+  if (!movieDetails.id) return; // I'll find a better way to do this later (404 page)
   return (
     <div>
       <Header />
-      <div className="mcd-div">
-        <div className="mcd-div-img">
-          <img
-            className="mcd-img"
-            src={`https://image.tmdb.org/t/p/w1280/${movieDetails.backdrop_path}`}
-            onError={(e) => {
-              e.target.src =
-                "https://seranking.com/blog/wp-content/uploads/2021/01/404_01-min.jpg";
-            }}
-            alt={movieDetails.title}
-          />
+      <div
+        style={
+          movieDetails.backdrop_path === null
+            ? {
+                backgroundImage: `url(https://i.imgur.com/8oVv3A8.png)`,
+              }
+            : {
+                backgroundImage: `url(https://image.tmdb.org/t/p/w1280/${movieDetails.backdrop_path})`,
+              }
+        }
+        className="container-details"
+      >
+        <div className="mcd" id="movie-overview">
+          <h4>{movieDetails.title}</h4>
+          <h6>{movieDetails.overview}</h6>
         </div>
-        <div className="mcd-details">
-          <h1>{movieDetails.original_title}</h1>
-          <h3>({movieDetails.title})</h3>
-          <h2 className="mcd-h2">{movieDetails.overview}</h2>
-          <div className="trailer">
-            <div>
-              <h3 className="mcd-h3">Budget : {movieDetails.budget}</h3>
-              <h3 className="mcd-h3">
-                Release Date : {movieDetails.release_date}
-              </h3>
-              <h3 className="mcd-h3">
-                Runtime : {movieDetails.runtime} minutes
-              </h3>
-              <h3 className="mcd-h3">Rating : {movieDetails.vote_average}</h3>
-            </div>
-            <div>
-              <Trailer movieId={movieId} />
-            </div>
+        <div className="trailer">
+          <div>
+            <h3 id="my-content" className="mcd-h3">Budget : ${movieDetails.budget}</h3>
+            <h3 id="my-content" className="mcd-h3">
+              Release Date : {movieDetails.release_date}
+            </h3>
+            <h3 id="my-content" className="mcd-h3">Runtime : {movieDetails.runtime} minutes</h3>
+            <h3 id="my-content" className="mcd-h3">Rating : {movieDetails.vote_average}</h3>
           </div>
-          <div className="moviecardsdetails">{renderCast}</div>
+          <div>
+            <Trailer movieId={movieId} />
+          </div>
         </div>
       </div>
+      <h1 className="cast-movie" id="cast-of-the-movie">Cast of the Movie</h1>
+      <div className="moviecardsdetails">{renderCast}</div>
     </div>
   );
 };

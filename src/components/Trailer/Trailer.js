@@ -18,13 +18,14 @@ const Trailer = ({ movieId }) => {
   }, []);
 
   return (
-    <div className="trailer-box">
+    <div className="trailer-box" id="trailer">
       <iframe
         src={`https://www.youtube.com/embed/${trailer}`}
-        height="300" width="600"
+        height="300" width="650"
         allowFullScreen = {true}
         title="video"
-      />{" "}
+        className="trailer-iframe" id="trailer-iframe"
+      />
     </div>
   );
 };

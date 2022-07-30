@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import Footer from "../Footer/Footer";
 import { Link } from "react-router-dom";
 import { UPCOMING_BASE_URL } from "../../config";
 import "./movieCards.scss";
@@ -12,17 +11,15 @@ const MovieCards = ({ data, setData, page, searchData, nextPage }) => {
     const movie = await response.json();
     setData([...data, ...movie.results]);
   };
-
-
   const whichData = searchData?.length > 2 ? searchData : data;
 
   const renderData = whichData.map((item, index) => {
     return (
-      <div className="divclass" key={index}>
+      <div className="movie-cards-info" key={index}>
         <Link to={`/${item.id}`}>
           <img
             className="card"
-            src={`https://image.tmdb.org/t/p/w500/${
+            src={`https://image.tmdb.org/t/p/w1280/${
               item?.poster_path || item?.backdrop_path
             }`}
             onError={(e) => {
@@ -45,6 +42,7 @@ const MovieCards = ({ data, setData, page, searchData, nextPage }) => {
 
   return (
     <div>
+      <h1 className="upcoming-movies">Upcoming Movies</h1>
       <div className="moviecards">{renderData}</div>
     </div>
   );

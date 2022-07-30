@@ -16,7 +16,7 @@ const Banner = ({ data, setData, page }) => {
     fetchApi();
   }, [page]);
   return (
-    <div>
+    <div className="whole-banner">
       <Carousel>
         <Carousel.Item interval={3000}>
           <img
@@ -26,7 +26,7 @@ const Banner = ({ data, setData, page }) => {
           />
           <Carousel.Caption>
             <h3>{data[0]?.title}</h3>
-            <h4>{data[0]?.overview}</h4>
+            <h4 id="overview">{data[0]?.overview}</h4>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item interval={3000}>
@@ -37,7 +37,7 @@ const Banner = ({ data, setData, page }) => {
           />
           <Carousel.Caption>
             <h3>{data[1]?.title}</h3>
-            <h4>{data[1]?.overview}</h4>
+            <h4 id="overview">{data[1]?.overview}</h4>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item interval={3000}>
@@ -48,7 +48,7 @@ const Banner = ({ data, setData, page }) => {
           />
           <Carousel.Caption>
             <h3>{data[2]?.title}</h3>
-            <h4>{data[2]?.overview}</h4>
+            <h4 id="overview">{data[2]?.overview}</h4>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item interval={3000}>
@@ -59,7 +59,7 @@ const Banner = ({ data, setData, page }) => {
           />
           <Carousel.Caption>
             <h3>{data[3]?.title}</h3>
-            <h4>{data[3]?.overview}</h4>
+            <h4 id="overview">{data[3]?.overview}</h4>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item interval={3000}>
@@ -70,7 +70,7 @@ const Banner = ({ data, setData, page }) => {
           />
           <Carousel.Caption>
             <h3>{data[4]?.title}</h3>
-            <h4>{data[4]?.overview}</h4>
+            <h4 id="overview">{data[4]?.overview}</h4>
           </Carousel.Caption>
         </Carousel.Item>
       </Carousel>
