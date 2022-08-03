@@ -5,16 +5,18 @@ import Header from "../Header/Header";
 import Trailer from "../Trailer/Trailer";
 import "./movieCardsDetails.scss";
 
+
 const MovieCardsDetails = () => {
   const [movieDetails, setMovieDetails] = useState({});
   const [cast, setCast] = useState([]);
   const [page, setPage] = useState(1);
 
-  const movieId = useParams();
+  const { movieId } = useParams();
+  console.log(movieId);
 
-  const DETAILS_API = `${MOVIE_BASE_URL}${movieId.movieId}?api_key=${process.env.REACT_APP_API_KEY}&language=en-US`;
+  const DETAILS_API = `${MOVIE_BASE_URL}${movieId & movieId}?api_key=${process.env.REACT_APP_API_KEY}&language=en-US`;
 
-  const CREDITS_API = `${MOVIE_BASE_URL}${movieId.movieId}/credits?api_key=${process.env.REACT_APP_API_KEY}&language=en-US`;
+  const CREDITS_API = `${MOVIE_BASE_URL}${movieId & movieId}/credits?api_key=${process.env.REACT_APP_API_KEY}&language=en-US`;
 
   const fetchApiDetails = async () => {
     const response = await fetch(DETAILS_API);
