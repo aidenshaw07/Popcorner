@@ -9,14 +9,20 @@ const SearchBar = ({ setData, page, data }) => {
   const SEARCH_API = `${SEARCH_BASE_URL}${searchValue}&page=1`;
   // console.log(SEARCH_API);
 
-  const searchApi = async () => {
-    const response = await fetch(SEARCH_API);
-    const movies = await response.json();
-    setData(movies.results);
-    // console.log(movieData.results);
-  };
+  // const searchApi = async () => {
+  //   const response = await fetch(SEARCH_API);
+  //   const movies = await response.json();
+  //   setData(movies.results);
+  //   // console.log(movieData.results);
+  // };
 
   useEffect(() => {
+    const searchApi = async () => {
+      const response = await fetch(SEARCH_API);
+      const movies = await response.json();
+      setData(movies.results);
+      // console.log(movieData.results);
+    };
     searchApi();
   }, [searchValue]);
 
