@@ -15,7 +15,7 @@ const Banner = ({ data, setData, page }) => {
   useEffect(() => {
     fetchApi();
   }, [page]); // eslint-disable-line react-hooks/exhaustive-deps
-  if(!data.length) return null;
+  // if(!data.length) return null;
   return (
     <div className="whole-banner">
       <Carousel>
