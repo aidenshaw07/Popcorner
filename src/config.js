@@ -1,5 +1,5 @@
 const API_URL = "https://api.themoviedb.org/3";
-const API_KEY = process.env.REACT_APP_API_KEY;
+const API_KEY = e1976db05fc177e4395e16088185d3fd
 
 const MOVIE_BASE_URL = `${API_URL}/movie/`;
 
