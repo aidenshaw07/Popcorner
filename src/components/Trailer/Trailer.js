@@ -15,7 +15,7 @@ const Trailer = ({ movieId }) => {
 
   useEffect(() => {
     fetchApiTrailer();
-  }, []);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <div className="trailer-box" id="trailer">

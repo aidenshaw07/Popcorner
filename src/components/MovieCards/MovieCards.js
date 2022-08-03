@@ -39,7 +39,7 @@ const MovieCards = ({ data, setData, page, searchData, nextPage }) => {
 
   useEffect(() => {
     fetchApi();
-  }, [page]);
+  }, [page]); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <div>

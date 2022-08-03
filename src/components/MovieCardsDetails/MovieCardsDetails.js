@@ -71,7 +71,7 @@ const MovieCardsDetails = () => {
     return () => {
       setPage(1);
     };
-  }, [page]);
+  }, [page]); // eslint-disable-line react-hooks/exhaustive-deps
 
   if (loading) return <div className="fallback">Loading...</div>;
 
