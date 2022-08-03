@@ -15,6 +15,7 @@ const Banner = ({ data, setData, page }) => {
   useEffect(() => {
     fetchApi();
   }, [page]);
+  if(!data.length) return null;
   return (
     <div className="whole-banner">
       <Carousel>

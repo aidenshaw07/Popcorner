@@ -5,6 +5,7 @@ import "./movieCards.scss";
 
 const MovieCards = ({ data, setData, page, searchData, nextPage }) => {
   const API_URL = `${UPCOMING_BASE_URL}${page}`;
+  console.log(data)
 
   const fetchApi = async () => {
     const response = await fetch(API_URL);
