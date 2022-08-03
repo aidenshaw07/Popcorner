@@ -1,19 +1,16 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { UPCOMING_BASE_URL } from "../../config";
 import "./movieCards.scss";
 
 const MovieCards = ({ data, setData, page, searchData, nextPage }) => {
-  const [loading, setLoading] = useState(false);
   const API_URL = `${UPCOMING_BASE_URL}${page}`;
   console.log(data)
 
   const fetchApi = async () => {
-    setLoading(true);
     const response = await fetch(API_URL);
     const movie = await response.json();
     setData([...data, ...movie.results]);
-    setLoading(false);
   };
   const whichData = searchData?.length > 2 ? searchData : data;
 
@@ -42,11 +39,8 @@ const MovieCards = ({ data, setData, page, searchData, nextPage }) => {
 
   useEffect(() => {
     fetchApi();
-    // eslint-disable-next-line
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [page]);
-
-  
-  if (loading) return <div className="fallback">Loading...</div>;
 
   return (
     <div>
