@@ -15,7 +15,6 @@ const Trailer = ({ movieId }) => {
 
   useEffect(() => {
     fetchApiTrailer();
-// eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

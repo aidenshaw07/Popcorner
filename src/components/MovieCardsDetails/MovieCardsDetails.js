@@ -71,7 +71,6 @@ const MovieCardsDetails = () => {
     return () => {
       setPage(1);
     };
-// eslint-disable-next-line react-hooks/exhaustive-deps
   }, [page]);
 
   if (loading) return <div className="fallback">Loading...</div>;

@@ -39,7 +39,6 @@ const MovieCards = ({ data, setData, page, searchData, nextPage }) => {
 
   useEffect(() => {
     fetchApi();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [page]);
 
   return (

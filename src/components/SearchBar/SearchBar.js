@@ -18,7 +18,6 @@ const SearchBar = ({ setData, page, data }) => {
 
   useEffect(() => {
     searchApi();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchValue]);
 
   return (

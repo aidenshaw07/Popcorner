@@ -14,7 +14,6 @@ const Banner = ({ data, setData, page }) => {
 
   useEffect(() => {
     fetchApi();
-// eslint-disable-next-line react-hooks/exhaustive-deps
   }, [page]);
   if(!data.length) return null;
   return (
