@@ -71,6 +71,7 @@ const MovieCardsDetails = () => {
     return () => {
       setPage(1);
     };
+    // eslint-disable-next-line
   }, [page]);
 
   if (loading) return <div className="fallback">Loading...</div>;

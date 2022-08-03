@@ -14,6 +14,7 @@ const Banner = ({ data, setData, page }) => {
 
   useEffect(() => {
     fetchApi();
+    // eslint-disable-next-line
   }, [page]);
   if(!data.length) return null;
   return (

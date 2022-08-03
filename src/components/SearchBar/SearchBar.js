@@ -18,6 +18,7 @@ const SearchBar = ({ setData, page, data }) => {
 
   useEffect(() => {
     searchApi();
+    // eslint-disable-next-line
   }, [searchValue]);
 
   return (
