@@ -5,7 +5,7 @@ import "./trailer.scss"
 const Trailer = ({ movieId }) => {
   const [trailer, setTrailer] = useState([]);
 
-  const TRAILER_API = `${MOVIE_BASE_URL}${movieId}/videos?api_key=${process.env.REACT_APP_API_KEY}&language=en-US`;
+  const TRAILER_API = `${MOVIE_BASE_URL}${movieId}/videos?api_key=e1976db05fc177e4395e16088185d3fd&language=en-US`;
 
   const fetchApiTrailer = async () => {
     const response = await fetch(TRAILER_API);

@@ -46,7 +46,6 @@ const MovieCardsDetails = () => {
   };
 
   const renderCast = cast.map((item, index) => {
-    
     return (
       <div className="cast-div" key={index}>
         <img

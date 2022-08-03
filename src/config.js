@@ -9,6 +9,8 @@ const SEARCH_BASE_URL = `${API_URL}/search/movie?api_key=${API_KEY}&language=en-
 
 const IMAGE_BASE_URL = "https://image.tmdb.org/t/p/w1280";
 
+
+
 export {
   MOVIE_BASE_URL,
   UPCOMING_BASE_URL,
