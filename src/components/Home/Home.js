@@ -5,30 +5,25 @@ import "./home.scss";
 import MovieCards from "../MovieCards/MovieCards";
 import SearchBar from "../SearchBar/SearchBar";
 import Footer from "../Footer/Footer";
+import useFetchMovieCards from "../../utils/useFetchMovieCards";
+import { LoadingOverlay } from "../Loading/Loading";
 
 const Home = () => {
-  const [data, setData] = useState([]);
-  const [page, setPage] = useState(1);
   const [searchData, setSearchData] = useState([]);
 
-  const nextPage = () => {
-    setPage((next) => next + 1);
-  };
+  const fetchedData = useFetchMovieCards();
+
+  const { data, loading, setData, nextPage } = fetchedData;
+
+  if (loading) return <LoadingOverlay show={loading} />;
 
   return (
-    <> 
+    <>
       <Header />
       <Banner data={data} setData={setData} />
-      <SearchBar page={page} data={searchData} setData={setSearchData} />
-      <MovieCards
-        page={page}
-        setPage={setPage}
-        data={data}
-        setData={setData}
-        searchData={searchData}
-        nextPage={nextPage}
-      />
-      <Footer nextPage={nextPage}/>
+      <SearchBar data={searchData} setData={setSearchData} />
+      <MovieCards data={data} setData={setData} searchData={searchData} />
+      <Footer nextPage={nextPage} />
     </>
   );
 };

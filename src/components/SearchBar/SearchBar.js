@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { SEARCH_BASE_URL } from "../../config";
 import "./searchBar.scss";
 
-const SearchBar = ({ setData, page, data }) => {
+const SearchBar = ({ setData, data }) => {
   const [searchValue, setSearchValue] = useState(undefined);
   // console.log(searchValue);
 

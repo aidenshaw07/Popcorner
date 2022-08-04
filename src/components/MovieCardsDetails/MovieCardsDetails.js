@@ -2,12 +2,13 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { MOVIE_BASE_URL } from "../../config";
 import Header from "../Header/Header";
+import { LoadingOverlay } from "../Loading/Loading";
 import Trailer from "../Trailer/Trailer";
 import "./movieCardsDetails.scss";
 
 const MovieCardsDetails = () => {
   const [movieDetails, setMovieDetails] = useState({});
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [cast, setCast] = useState([]);
   const [page, setPage] = useState(1);
 
@@ -19,29 +20,27 @@ const MovieCardsDetails = () => {
 
   const fetchApiDetails = async () => {
     try {
-      setLoading(true);
       const response = await fetch(DETAILS_API);
       const movie = await response.json();
       setMovieDetails(movie);
-      setLoading(false);
     } catch (error) {
       console.log(error);
     } finally {
       console.log(movieDetails);
+      setLoading(false);
     }
   };
 
   const fetchApiCast = async () => {
     try {
-      setLoading(true);
       const response = await fetch(CREDITS_API);
       const cast = await response.json();
       setCast(cast.cast);
-      setLoading(false);
     } catch (error) {
       console.log(error);
     } finally {
       console.log(cast);
+      setLoading(false);
     }
   };
 
@@ -72,7 +71,7 @@ const MovieCardsDetails = () => {
     };
   }, [page]); // eslint-disable-line react-hooks/exhaustive-deps
 
-  if (loading) return <div className="fallback">Loading...</div>;
+  if (loading) return <LoadingOverlay show={loading} />;
 
   return (
     <>
@@ -84,7 +83,7 @@ const MovieCardsDetails = () => {
                 backgroundImage: `url(https://i.imgur.com/8oVv3A8.png)`,
               }
             : {
-                backgroundImage: `url(https://image.tmdb.org/t/p/w1280/${movieDetails.backdrop_path})`,
+                backgroundImage: `url(https://image.tmdb.org/t/p/w1280/${movieDetails?.backdrop_path})`,
               }
         }
         className="container-details"

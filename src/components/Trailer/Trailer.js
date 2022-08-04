@@ -20,7 +20,7 @@ const Trailer = ({ movieId }) => {
   return (
     <div className="trailer-box" id="trailer">
       <iframe
-        src={`https://www.youtube-nocookie.com/embed/${trailer}`}
+        src={`https://www.youtube.com/embed/${trailer}`}
         height="300" width="650"
         allowFullScreen = {true}
         title="video"

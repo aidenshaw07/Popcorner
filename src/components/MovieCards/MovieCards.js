@@ -1,17 +1,9 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
-import { UPCOMING_BASE_URL } from "../../config";
 import "./movieCards.scss";
 
-const MovieCards = ({ data, setData, page, searchData, nextPage }) => {
-  const API_URL = `${UPCOMING_BASE_URL}${page}`;
-  console.log(data)
+const MovieCards = ({ data, searchData }) => {
 
-  const fetchApi = async () => {
-    const response = await fetch(API_URL);
-    const movie = await response.json();
-    setData([...data, ...movie.results]);
-  };
   const whichData = searchData?.length > 2 ? searchData : data;
 
   const renderData = whichData.map((item, index) => {
@@ -36,10 +28,6 @@ const MovieCards = ({ data, setData, page, searchData, nextPage }) => {
       </div>
     );
   });
-
-  useEffect(() => {
-    fetchApi();
-  }, [page]); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <div>
