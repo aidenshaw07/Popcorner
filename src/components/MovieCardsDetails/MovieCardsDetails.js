@@ -13,9 +13,9 @@ const MovieCardsDetails = () => {
 
   const { movieId } = useParams();
 
-  const DETAILS_API = `${MOVIE_BASE_URL}${movieId}?api_key=e1976db05fc177e4395e16088185d3fd&language=en-US`;
+  const DETAILS_API = `${MOVIE_BASE_URL}${movieId}?api_key=${process.env.REACT_APP_API_KEY}&language=en-US`;
 
-  const CREDITS_API = `${MOVIE_BASE_URL}${movieId}/credits?api_key=e1976db05fc177e4395e16088185d3fd&language=en-US`;
+  const CREDITS_API = `${MOVIE_BASE_URL}${movieId}/credits?api_key=${process.env.REACT_APP_API_KEY}&language=en-US`;
 
   const fetchApiDetails = async () => {
     try {
