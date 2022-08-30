@@ -8,9 +8,9 @@ HTML/CSS, JavaScript, React.js
 
 ### User Story
 
-As a user, I want to see upcoming movies.
-As a user, I want to see the details and the trailer of a movie when I click on it.
-As a user, I want to be able to search for a movie by title.
+- As a user, I want to see upcoming movies.
+- As a user, I want to see the details and the trailer of a movie when I click on it.
+- As a user, I want to be able to search for a movie by title.
 
 #### MVP
 
