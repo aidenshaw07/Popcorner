@@ -6,7 +6,11 @@ A responsive website created by using React that works on desktop and phone, whi
 
 ### Technology
 
-HTML/CSS, JavaScript, React.js
+    HTML
+    CSS
+    JavaScript
+    React.js
+    Bootstrap
 
 ### User Story
 
