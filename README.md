@@ -4,6 +4,10 @@ A responsive website created by using React that works on desktop and phone, whi
 
 ![popcorner-screenshot](https://user-images.githubusercontent.com/99930464/187485771-da470bae-2f5a-47a7-8e87-e4c1bde0789a.png)
 
+### Component Tree
+
+![Component Tree](https://user-images.githubusercontent.com/99930464/192010547-b1fe8a33-c72c-45e1-b7c7-ffa4755da6a1.png)
+
 ### Technology
 
     HTML
