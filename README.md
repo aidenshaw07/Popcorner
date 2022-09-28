@@ -11,7 +11,7 @@ A responsive website created by using React that works on desktop and phone, whi
 ### Technology
 
     HTML
-    CSS
+    SASS
     JavaScript
     React.js
     Bootstrap
