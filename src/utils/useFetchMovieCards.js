@@ -13,7 +13,6 @@ console.log(loading);
   const API_URL = `${UPCOMING_BASE_URL}${page}`;
 
   const fetchApi = async () => {
-    // setLoading(true);
     try {
       const response = await fetch(API_URL);
       const movie = await response.json();

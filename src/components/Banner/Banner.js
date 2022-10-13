@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import Carousel from "react-bootstrap/Carousel";
-import { UPCOMING_BASE_URL } from "../../config";
+import { IMAGE_BASE_URL, UPCOMING_BASE_URL } from "../../config";
 import "./banner.scss";
 
 const Banner = ({ data, setData, page }) => {
@@ -15,14 +15,13 @@ const Banner = ({ data, setData, page }) => {
   useEffect(() => {
     fetchApi();
   }, [page]); // eslint-disable-line react-hooks/exhaustive-deps
-  // if(!data.length) return null;
   return (
     <div className="whole-banner">
       <Carousel>
         <Carousel.Item interval={3000}>
           <img
             className="d-block w-100"
-            src={`https://image.tmdb.org/t/p/w1280/${data[0]?.backdrop_path}`}
+            src={`${IMAGE_BASE_URL}${data[0]?.backdrop_path}`}
             alt="First slide"
           />
           <Carousel.Caption>
@@ -33,7 +32,7 @@ const Banner = ({ data, setData, page }) => {
         <Carousel.Item interval={3000}>
           <img
             className="d-block w-100"
-            src={`https://image.tmdb.org/t/p/w1280/${data[1]?.backdrop_path}`}
+            src={`${IMAGE_BASE_URL}${data[1]?.backdrop_path}`}
             alt="Second slide"
           />
           <Carousel.Caption>
@@ -44,7 +43,7 @@ const Banner = ({ data, setData, page }) => {
         <Carousel.Item interval={3000}>
           <img
             className="d-block w-100"
-            src={`https://image.tmdb.org/t/p/w1280/${data[2]?.backdrop_path}`}
+            src={`${IMAGE_BASE_URL}${data[2]?.backdrop_path}`}
             alt="Third slide"
           />
           <Carousel.Caption>
@@ -55,7 +54,7 @@ const Banner = ({ data, setData, page }) => {
         <Carousel.Item interval={3000}>
           <img
             className="d-block w-100"
-            src={`https://image.tmdb.org/t/p/w1280/${data[3]?.backdrop_path}`}
+            src={`${IMAGE_BASE_URL}${data[3]?.backdrop_path}`}
             alt="First slide"
           />
           <Carousel.Caption>
@@ -66,7 +65,7 @@ const Banner = ({ data, setData, page }) => {
         <Carousel.Item interval={3000}>
           <img
             className="d-block w-100"
-            src={`https://image.tmdb.org/t/p/w1280/${data[4]?.backdrop_path}`}
+            src={`${IMAGE_BASE_URL}${data[4]?.backdrop_path}`}
             alt="First slide"
           />
           <Carousel.Caption>
