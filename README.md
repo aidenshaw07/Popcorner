@@ -1,6 +1,6 @@
 ## Popcorner
 
-#https://popcorner.netlify.app/
+https://popcorner.netlify.app/
 
 A responsive website created by using React that works on desktop and phone, which shows users upcoming movies and information about each particular movie.
 
