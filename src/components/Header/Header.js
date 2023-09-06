@@ -4,10 +4,10 @@ import { Link } from "react-router-dom";
 import header from "./header.png";
 
 const Header = () => {
-  const hideButton = window.location.href === "http://localhost:3000/";
+  const hideButton = window.location.href === "https://popcorner.netlify.app/";
 
   const redirectToHomePage = () => {
-    window.location.href = "http://localhost:3000/";
+    window.location.href = "https://popcorner.netlify.app/";
   };
 
   return (
