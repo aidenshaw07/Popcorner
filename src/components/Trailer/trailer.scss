@@ -1,13 +1,33 @@
 .trailer-iframe {
   border-radius: 25px;
+  height: 300px;
+  width: 650px;
   -webkit-box-shadow: 5px 5px 4px 1px rgba(0, 0, 0, 0.4);
   box-shadow: 5px 5px 4px 1px rgba(0, 0, 0, 0.4);
 }
 
-@media screen and (max-width: 1299px) {
-  #trailer {
-    margin-left: -130px;
+@media screen and (max-width: 1427px) {
+  .trailer-iframe {
+    width: 550px;
+    height: 300px;
   }
+}
+
+@media screen and (max-width: 1129px) {
+  #trailer-iframe {
+    width: 450px;
+    height: 250px;
+  }
+}
+
+@media screen and (max-width: 1015px) {
+  #trailer-iframe {
+    width: 350px;
+    height: 230px;
+  }
+}
+
+@media screen and (max-width: 815px) {
   #trailer-iframe {
     width: 300px;
     height: 200px;

@@ -88,22 +88,22 @@ const MovieCardsDetails = () => {
         }
         className="container-details"
       >
-        <div className="mcd" id="movie-overview">
-          <h4>{movieDetails.title}</h4>
-          <h6>{movieDetails.overview}</h6>
+        <div className="movie-cards-details" id="movie-overview">
+          <h4 id="movie-cards-details">{movieDetails.title}</h4>
+          <h6 id="movie-cards-details">{movieDetails.overview}</h6>
         </div>
         <div className="trailer">
           <div>
-            <h3 id="my-content" className="mcd-h3">
+            <h3 id="movie-content" className="movie-cards-details-h3">
               Budget : ${movieDetails.budget}
             </h3>
-            <h3 id="my-content" className="mcd-h3">
+            <h3 id="movie-content" className="movie-cards-details-h3">
               Release Date : {movieDetails.release_date}
             </h3>
-            <h3 id="my-content" className="mcd-h3">
+            <h3 id="movie-content" className="movie-cards-details-h3">
               Runtime : {movieDetails.runtime} minutes
             </h3>
-            <h3 id="my-content" className="mcd-h3">
+            <h3 id="movie-content" className="movie-cards-details-h3">
               Rating : {movieDetails.vote_average}
             </h3>
           </div>
@@ -115,7 +115,7 @@ const MovieCardsDetails = () => {
       <h1 className="cast-movie" id="cast-of-the-movie">
         Cast of the Movie
       </h1>
-      <div className="moviecardsdetails">{renderCast}</div>
+      <div className="movie-cast">{renderCast}</div>
     </>
   );
 };

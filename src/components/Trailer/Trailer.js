@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { MOVIE_BASE_URL } from "../../config";
-import "./trailer.scss"
+import "./trailer.scss";
 
 const Trailer = ({ movieId }) => {
   const [trailer, setTrailer] = useState([]);
@@ -21,10 +21,10 @@ const Trailer = ({ movieId }) => {
     <div className="trailer-box" id="trailer">
       <iframe
         src={`https://www.youtube.com/embed/${trailer}`}
-        height="300" width="650"
-        allowFullScreen = {true}
+        allowFullScreen={true}
         title="video"
-        className="trailer-iframe" id="trailer-iframe"
+        className="trailer-iframe"
+        id="trailer-iframe"
       />
     </div>
   );
