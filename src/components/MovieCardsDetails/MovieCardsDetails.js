@@ -24,9 +24,9 @@ const MovieCardsDetails = () => {
       const movie = await response.json();
       setMovieDetails(movie);
     } catch (error) {
-      console.log(error);
+      // console.log(error);
     } finally {
-      console.log(movieDetails);
+      // console.log(movieDetails);
       setLoading(false);
     }
   };
@@ -37,9 +37,9 @@ const MovieCardsDetails = () => {
       const cast = await response.json();
       setCast(cast.cast);
     } catch (error) {
-      console.log(error);
+      // console.log(error);
     } finally {
-      console.log(cast);
+      // console.log(cast);
       setLoading(false);
     }
   };

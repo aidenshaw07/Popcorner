@@ -5,7 +5,7 @@ const useFetchMovieCards = () => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [page, setPage] = useState(1);
-console.log(loading);
+  // console.log(loading);
   const nextPage = () => {
     setPage((next) => next + 1);
   };
@@ -18,7 +18,7 @@ console.log(loading);
       const movie = await response.json();
       setData([...data, ...movie.results]);
     } catch (error) {
-      console.log(error);
+      // console.log(error);
     } finally {
       setLoading(false);
     }
