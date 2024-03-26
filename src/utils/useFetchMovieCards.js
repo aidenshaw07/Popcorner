@@ -28,7 +28,7 @@ const useFetchMovieCards = () => {
     fetchApi();
   }, [page]); // eslint-disable-line react-hooks/exhaustive-deps
 
-  return { data, loading, setData, nextPage };
+  return { data, loading, setData, nextPage, page };
 };
 
 export default useFetchMovieCards;

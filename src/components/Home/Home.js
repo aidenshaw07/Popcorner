@@ -13,14 +13,14 @@ const Home = () => {
 
   const fetchedData = useFetchMovieCards();
 
-  const { data, loading, setData, nextPage } = fetchedData;
+  const { data, loading, setData, nextPage, page } = fetchedData;
 
   if (loading) return <LoadingOverlay show={loading} />;
 
   return (
     <>
       <Header />
-      <Banner data={data} setData={setData} />
+      <Banner data={data} setData={setData} page={page} />
       <SearchBar data={searchData} setData={setSearchData} />
       <MovieCards data={data} setData={setData} searchData={searchData} />
       <Footer nextPage={nextPage} />
