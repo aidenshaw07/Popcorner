@@ -13,20 +13,19 @@
 .button-container {
   position: absolute;
   left: 1rem;
-  display: flex;
-  align-items: center;
 }
 .back-button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #ff2400;
-  color: #242124;
-  padding: 0.4rem 0.7rem;
+  width: 2rem;
+  background-color: transparent;
   border: none;
+  color: white;
   cursor: pointer;
+  padding: 0.2rem;
   border-radius: 5px;
-  box-shadow: 0.5px 0.5px 2px 0.5px rgba(139, 139, 139, 1);
+  transition: background-color 0.3s;
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
 }
 
 .header-img {
